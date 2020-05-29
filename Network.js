@@ -1,5 +1,4 @@
-const math = require('mathjs');
-
+const { math, sigmoid , dSigmoid } = require('./assets');
 
 class Network {
   constructor(layers) {
@@ -9,7 +8,7 @@ class Network {
       return (
         [...Array(nextLayerSize)].map(() => {
           return (
-            math.matrix( [...Array(layerSize)].map(w => Math.random()) )
+            [...Array(layerSize)].map(w => math.random())
           )
         })
       );
@@ -17,16 +16,12 @@ class Network {
   }
 
   feedForward (input) {
-    let layer1 = this.weights[0]
-    let layer2Input = layer1.map((weights) => {
-      return math.dot(input, weights) 
-    })
-
-    let layer2 = this.weights[1]
-    let final = layer2.map((weights) => {
-      return math.dot(layer2Input, weights) 
-    })
-    console.log(final)
+    let activations = input;
+    for (let layer of this.weights) {
+      activations = layer.map(weights => {
+        return sigmoid(math.dot(activations, weights))
+      })
+    }
   }
 }
 
