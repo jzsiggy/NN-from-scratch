@@ -2,7 +2,6 @@ const { math, sigmoid , dSigmoid } = require('./assets');
 
 class Network {
   constructor(layers) {
-    this.size = layers.length;
     this.weights = layers.slice(0, -1).map((layerSize, index) => {
       const nextLayerSize = layers[index+1]
       return (
@@ -22,8 +21,21 @@ class Network {
         return sigmoid(math.dot(activations, weights))
       })
     }
+    return activations
+  }
+
+  backProp () {
+    
+  }
+
+  cost (x, yhat) {
+    const activations = this.feedForward(x);
+    const costVector = activations.map((val, index) => {
+      return ( val - yhat[index] )**2
+    })
+    return( math.sum(costVector) )
   }
 }
 
-const network = new Network([4, 5, 3])
-network.feedForward([1, 2, 3, 4])
+const network = new Network([1, 1, 1, 1])
+console.log( network.cost([1], [0]) )
