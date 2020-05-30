@@ -61,7 +61,11 @@ class Network {
     return math.sum(costVector);
   }
 
-  
+  train (input, output) {
+    input.forEach((x, index) => {
+      this.backProp(x, output[index]);
+    });
+  }
 }
 
 const network = new Network([1, 5, 1])
