@@ -62,9 +62,15 @@ class Network {
   }
 
   train (input, output) {
-    input.forEach((x, index) => {
-      this.backProp(x, output[index]);
-    });
+    for (let n = 0; n < 1000; n++) {
+      input.forEach((x, index) => {
+        this.backProp(x, output[index]);
+      });
+    }
+  }
+
+  predict (x) {
+    return this.feedForward(x);
   }
 }
 
@@ -90,3 +96,5 @@ network.train([
 ])
 
 console.log(network.weights)
+
+console.log(network.predict([1]))
