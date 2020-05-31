@@ -36,7 +36,7 @@ class Network {
           let original = weight;
           this.weights[lIndex][nIndex][wIndex] += 0.01;
           let newCost = this.cost(x, y)
-          let delWeight = (newCost - originalCost) / 0.01
+          let delWeight = (newCost - originalCost) / 0.01;
           dNeuron.push(delWeight)
           this.weights[lIndex][nIndex][wIndex] = original
         })
@@ -61,8 +61,8 @@ class Network {
     return math.sum(costVector);
   }
 
-  train (input, output) {
-    for (let n = 0; n < 1000; n++) {
+  train ({ input, output, epochs }) {
+    for (let n = 0; n < epochs; n++) {
       input.forEach((x, index) => {
         this.backProp(x, output[index]);
       });
@@ -74,27 +74,7 @@ class Network {
   }
 }
 
-const network = new Network([1, 5, 1])
-console.log(network.weights)
 
-network.train([
-  [1],
-  [1],
-  [1],
-  [1],
-  [0],
-  [0],
-  [0],
-], [
-  [0],
-  [0],
-  [0],
-  [0],
-  [1],
-  [1],
-  [1]
-])
-
-console.log(network.weights)
-
-console.log(network.predict([1]))
+module.exports = {
+  Network,
+}

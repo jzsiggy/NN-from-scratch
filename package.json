@@ -1,5 +1,13 @@
 {
-  "dependencies": {
-    "mathjs": "^7.0.0"
-  }
+  "name": "NN-from-scratch",
+  "version": "1.0.0",
+  "description": "Creating a Neural Network from Scratch",
+  "main": "index.js",
+  "author": "Joao Zsigmond (jzsiggy)",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "network",
+    "web"
+  ]
 }

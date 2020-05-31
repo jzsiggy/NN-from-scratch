@@ -1,0 +1,11 @@
+{
+  "name": "network",
+  "version": "1.0.0",
+  "description": "Neural Network",
+  "main": "index.js",
+  "author": "Joao Zsigmond (jzsiggy)",
+  "license": "MIT",
+  "dependencies": {
+    "mathjs": "^7.0.1"
+  }
+}
