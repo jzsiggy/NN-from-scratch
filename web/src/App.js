@@ -1,9 +1,9 @@
 import React from 'react';
-import Network from './components/neuralNetwork/Network';
+import Main from './components/app/App';
 
 function App() {
   return (
-    <Network />
+    <Main />
   );
 }
 
