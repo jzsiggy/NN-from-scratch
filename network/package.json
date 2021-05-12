@@ -6,6 +6,6 @@
   "author": "Joao Zsigmond (jzsiggy)",
   "license": "MIT",
   "dependencies": {
-    "mathjs": "^7.0.1"
+    "mathjs": "^7.5.1"
   }
 }
